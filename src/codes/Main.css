@@ -1,0 +1,57 @@
+.root {
+  -fx-background-color: #ffffff;
+}
+
+.button {
+  -fx-border-radius: 4px;
+  -fx-background-radius: 4px;
+  -fx-padding: 6px 12px 6px 12px;
+  -fx-font-size: 16px;
+}
+
+.btn-lightgreen {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #68d16c;
+    -fx-border-color: #4ac750;
+}
+
+.btn-lightgreen:hover {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #52ba55;
+    -fx-border-color: #47a64a;
+}
+
+.btn-green {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #00ab66;
+    -fx-border-color: #009c5e;
+}
+
+.btn-green:hover {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #009157;
+    -fx-border-color: #007d4b;
+}
+
+.btn-aqua {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #50d0b1;
+    -fx-border-color: #3bcca8;
+}
+
+.btn-aqua:hover {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #41ba9d;
+    -fx-border-color: #38a88d;
+}
+
+.btn-danger {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #d9534f;
+    -fx-border-color: #d43f3a;
+}
+.btn-danger:hover {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #d2322d;
+    -fx-border-color: #ac2925;
+}

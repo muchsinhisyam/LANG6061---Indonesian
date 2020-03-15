@@ -15,7 +15,7 @@ public class Main extends Application {
         loader.setLocation(getClass().getResource("MainPage.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
-        String css = Main.class.getResource("MainPage.css").toExternalForm();
+        String css = Main.class.getResource("Main.css").toExternalForm();
 
         primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.setResizable(false);

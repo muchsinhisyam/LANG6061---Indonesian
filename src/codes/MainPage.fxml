@@ -4,15 +4,16 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codes.Controller">
+<AnchorPane prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="codes.MainController">
    <children>
-      <ImageView fitHeight="245.0" fitWidth="248.0" layoutX="329.0" layoutY="-34.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="382.0" fitWidth="407.0" layoutX="259.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/logo.png" />
          </image>
       </ImageView>
-      <Button fx:id="startButton" layoutX="366.0" layoutY="230.0" mnemonicParsing="false" onAction="#startButtonClicked" prefHeight="50.0" prefWidth="170.0" styleClass="btn-success" text="Start" />
-      <Button fx:id="optionsButton" layoutX="366.0" layoutY="305.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="170.0" styleClass="btn-warning" text="Options" />
-      <Button fx:id="exitButton" layoutX="366.0" layoutY="380.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="170.0" styleClass="btn-danger" text="Exit" />
+      <Button fx:id="exitButton" layoutX="35.0" layoutY="35.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="80.0" styleClass="btn-danger" text="Exit" />
+      <Button fx:id="startButton" layoutX="159.0" layoutY="412.0" mnemonicParsing="false" onAction="#startButtonClicked" prefHeight="50.0" prefWidth="170.0" styleClass="btn-lightgreen" text="Start" />
+      <Button fx:id="optionsButton" layoutX="365.0" layoutY="412.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="170.0" styleClass="btn-green" text="Options" />
+      <Button fx:id="aboutButton" layoutX="574.0" layoutY="412.0" mnemonicParsing="false" onAction="#aboutButtonClicked" prefHeight="50.0" prefWidth="170.0" styleClass="btn-aqua" text="About Us" />
    </children>
 </AnchorPane>

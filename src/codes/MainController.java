@@ -86,12 +86,19 @@ public class MainController implements Initializable {
         backButtonClicked(event);
     }
 
-    private void topicClicked(ActionEvent event) throws IOException {
+    private void topicClicked(ActionEvent event, String topics) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("QuizTemplate.fxml"));
         Parent root = loader.load();
 
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        // Passing data to ProductFormController
+        QuizTemplateController controller = loader.getController();
+
+        if (topics == "Basics"){
+            controller.initData("Basics", Main.Basics);
+        }
 
         Scene scene = new Scene(root);
         String css = Main.class.getResource("Main.css").toExternalForm();
@@ -104,6 +111,7 @@ public class MainController implements Initializable {
     @FXML
     public void BasicsClicked(ActionEvent event) throws IOException {
         System.out.println("BasicsTopic Clicked at ChooseTopicPage");
+        topicClicked(event, "Basics");
     }
 
 }

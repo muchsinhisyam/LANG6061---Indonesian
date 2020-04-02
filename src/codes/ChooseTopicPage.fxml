@@ -12,7 +12,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="115.0" layoutY="209.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="190.0" styleClass="btn-lightgreen" text="Basics" />
+      <Button layoutX="115.0" layoutY="209.0" mnemonicParsing="false" onAction="#BasicsClicked" prefHeight="75.0" prefWidth="190.0" styleClass="btn-lightgreen" text="Basics" />
       <Button layoutX="355.0" layoutY="209.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="190.0" styleClass="btn-green" text="Travel" />
       <Button layoutX="595.0" layoutY="209.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="190.0" styleClass="btn-aqua" text="Time" />
       <Button layoutX="116.0" layoutY="339.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="190.0" styleClass="btn-lightgreen" text="Greetings" />

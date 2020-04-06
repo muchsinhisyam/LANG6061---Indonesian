@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -131,6 +132,7 @@ public class Main extends Application {
         primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.setResizable(false);
 
+        primaryStage.getIcons().add(new Image("images/icon.png"));
         primaryStage.setTitle("Study Belajar");
         scene.getStylesheets().add(css);
         primaryStage.setScene(scene);

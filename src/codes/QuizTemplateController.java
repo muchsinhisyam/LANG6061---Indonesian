@@ -63,8 +63,7 @@ public class QuizTemplateController implements Initializable {
         numberLabel.setText(num);
     }
 
-    private void nextQuestion(){
-//        ActionEvent event;
+    private void nextQuestion(ActionEvent event) throws IOException {
         try {
             CurrentIndex++;
             questionArea.setText(CurrentData[CurrentIndex][0]);
@@ -82,7 +81,7 @@ public class QuizTemplateController implements Initializable {
             alert.setContentText("Thank you for playing!");
             alert.showAndWait();
             // Back to topic selection
-//            backButtonClicked(event);
+            backButtonClicked(event);
         }
     }
 
@@ -120,41 +119,41 @@ public class QuizTemplateController implements Initializable {
         alert.showAndWait();
     }
 
-    public void button1Clicked() {
+    public void button1Clicked(ActionEvent event) throws IOException {
         System.out.println("answerButton1 Clicked at QuizTemplate");
         buttonClicked = 1;
         if (isCorrectAnswer()) {
-            nextQuestion();
+            nextQuestion(event);
         } else {
             printWrongAnswer();
         }
     }
 
-    public void button2Clicked() {
+    public void button2Clicked(ActionEvent event) throws IOException {
         System.out.println("answerButton2 Clicked at QuizTemplate");
         buttonClicked = 2;
         if (isCorrectAnswer()) {
-            nextQuestion();
+            nextQuestion(event);
         } else {
             printWrongAnswer();
         }
     }
 
-    public void button3Clicked() {
+    public void button3Clicked(ActionEvent event) throws IOException {
         System.out.println("answerButton3 Clicked at QuizTemplate");
         buttonClicked = 3;
         if (isCorrectAnswer()) {
-            nextQuestion();
+            nextQuestion(event);
         } else {
             printWrongAnswer();
         }
     }
 
-    public void button4Clicked() {
+    public void button4Clicked(ActionEvent event) throws IOException {
         System.out.println("answerButton4 Clicked at QuizTemplate");
         buttonClicked = 4;
         if (isCorrectAnswer()) {
-            nextQuestion();
+            nextQuestion(event);
         } else {
             printWrongAnswer();
         }

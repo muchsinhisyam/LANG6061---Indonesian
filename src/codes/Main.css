@@ -55,3 +55,14 @@
     -fx-background-color: #d2322d;
     -fx-border-color: #ac2925;
 }
+
+.btn-warning {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #f0ad4e;
+    -fx-border-color: #eea236;
+}
+.btn-warning:hover {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #ed9c28;
+    -fx-border-color: #d58512;
+}

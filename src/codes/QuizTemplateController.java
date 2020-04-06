@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -24,10 +25,12 @@ public class QuizTemplateController implements Initializable {
 
     private int CorrectAnswer;
     private int buttonClicked;
+    private String Hints;
 
     @FXML private Button backButton;
     @FXML private Button hintButton;
     @FXML private Label topicLabel;
+    @FXML private Label numberLabel;
     @FXML private TextArea questionArea;
     @FXML private Button answerButton1;
     @FXML private Button answerButton2;
@@ -51,16 +54,36 @@ public class QuizTemplateController implements Initializable {
         answerButton3.setText(data[CurrentIndex][3]);
         answerButton4.setText(data[CurrentIndex][4]);
         CorrectAnswer = Integer.parseInt(data[CurrentIndex][5]);
+        Hints = CurrentData[CurrentIndex][6];
+        refreshNumberLabel();
+    }
+
+    private void refreshNumberLabel(){
+        String num = (CurrentIndex+1) + "/" + CurrentData.length;
+        numberLabel.setText(num);
     }
 
     private void nextQuestion(){
-        CurrentIndex++;
-        questionArea.setText(CurrentData[CurrentIndex][0]);
-        answerButton1.setText(CurrentData[CurrentIndex][1]);
-        answerButton2.setText(CurrentData[CurrentIndex][2]);
-        answerButton3.setText(CurrentData[CurrentIndex][3]);
-        answerButton4.setText(CurrentData[CurrentIndex][4]);
-        CorrectAnswer = Integer.parseInt(CurrentData[CurrentIndex][5]);
+//        ActionEvent event;
+        try {
+            CurrentIndex++;
+            questionArea.setText(CurrentData[CurrentIndex][0]);
+            answerButton1.setText(CurrentData[CurrentIndex][1]);
+            answerButton2.setText(CurrentData[CurrentIndex][2]);
+            answerButton3.setText(CurrentData[CurrentIndex][3]);
+            answerButton4.setText(CurrentData[CurrentIndex][4]);
+            CorrectAnswer = Integer.parseInt(CurrentData[CurrentIndex][5]);
+            Hints = CurrentData[CurrentIndex][6];
+            refreshNumberLabel();
+        } catch (ArrayIndexOutOfBoundsException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Congratulations!");
+            alert.setHeaderText("You have learn about "+ CurrentTopic + " words of Indonesian!");
+            alert.setContentText("Thank you for playing!");
+            alert.showAndWait();
+            // Back to topic selection
+//            backButtonClicked(event);
+        }
     }
 
     @FXML
@@ -85,9 +108,16 @@ public class QuizTemplateController implements Initializable {
             System.out.println("The following answer is correct");
             return true;
         } else {
-            System.out.println("The following answer is wrong");
             return false;
         }
+    }
+
+    public void printWrongAnswer(){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Wrong Answer!");
+        alert.setHeaderText("Your answer is wrong!");
+        alert.setContentText("You must choose correct answer to continue to next questions. \n If you're stuck, you can click 'Hint' button.");
+        alert.showAndWait();
     }
 
     public void button1Clicked() {
@@ -95,28 +125,47 @@ public class QuizTemplateController implements Initializable {
         buttonClicked = 1;
         if (isCorrectAnswer()) {
             nextQuestion();
+        } else {
+            printWrongAnswer();
         }
     }
+
     public void button2Clicked() {
         System.out.println("answerButton2 Clicked at QuizTemplate");
         buttonClicked = 2;
         if (isCorrectAnswer()) {
             nextQuestion();
+        } else {
+            printWrongAnswer();
         }
     }
+
     public void button3Clicked() {
         System.out.println("answerButton3 Clicked at QuizTemplate");
         buttonClicked = 3;
         if (isCorrectAnswer()) {
             nextQuestion();
+        } else {
+            printWrongAnswer();
         }
     }
+
     public void button4Clicked() {
         System.out.println("answerButton4 Clicked at QuizTemplate");
         buttonClicked = 4;
         if (isCorrectAnswer()) {
             nextQuestion();
+        } else {
+            printWrongAnswer();
         }
     }
 
+    public void hintButtonClicked(){
+        System.out.println("HintButton Clicked at QuizTemplate");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Hints");
+        alert.setHeaderText("Here's the hint!");
+        alert.setContentText(Hints);
+        alert.showAndWait();
+    }
 }

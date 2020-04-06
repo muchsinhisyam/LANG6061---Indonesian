@@ -7,7 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -59,6 +61,11 @@ public class MainController implements Initializable {
         currentStage.show();
     }
 
+    @FXML
+    public void exitClicked(){
+       System.exit(0);
+    }
+
     private void backButtonClicked(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("MainPage.fxml"));
@@ -98,6 +105,11 @@ public class MainController implements Initializable {
 
         if (topics == "Basics"){
             controller.initData("Basics", Main.Basics);
+        } else if (topics == "Travel"){
+            controller.initData("Travel", Main.Travel);
+        }
+        else if (topics == "Time"){
+            controller.initData("Time", Main.Time);
         }
 
         Scene scene = new Scene(root);
@@ -114,4 +126,25 @@ public class MainController implements Initializable {
         topicClicked(event, "Basics");
     }
 
+    @FXML
+    public void TravelClicked(ActionEvent event) throws IOException {
+        System.out.println("TravelTopic Clicked at ChooseTopicPage");
+        topicClicked(event, "Travel");
+    }
+
+    @FXML
+    public void TimeClicked(ActionEvent event) throws IOException {
+        System.out.println("TimeTopic Clicked at ChooseTopicPage");
+        topicClicked(event, "Time");
+    }
+
+    @FXML
+    public void ComingSoonClicked(ActionEvent event) throws IOException {
+        System.out.println("ComingSoon Topic Clicked at QuizTemplate");
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Topic Unavailable");
+        alert.setHeaderText("Topic still coming soon!");
+        alert.setContentText("The topics is still coming soon! \nStay tune.");
+        alert.showAndWait();
+    }
 }
